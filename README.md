@@ -14,5 +14,9 @@ user can add new blog post by side navigation
 
 application is responsive so user can user any device.
 
+If You want to see comment of an post just click on load comment button it will display all comment for that particuler post just below the post
+
+
+
 
 
