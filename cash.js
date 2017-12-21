@@ -2,7 +2,7 @@ var myapp = angular.module('myapp',[]);
 myapp.controller('blog-controller',['$scope','$http','$filter',function($scope,$http,$filter){
 
     /*all post  */
-    $scope.allPost = "ss";
+    $scope.allPost = "ss";   // Setting Some default vaue to define variable we can just declare also
 
     // Variables for pagination 
     $scope.currentPage = 0;
@@ -50,38 +50,32 @@ myapp.controller('blog-controller',['$scope','$http','$filter',function($scope,$
             $scope.data = response.data;
             //console.log($scope.allPost);
             if($scope.data.length===0){
+                // Setting up data in case no record is found 
                 $scope.data = [{
                     "title":"No Post Found with this author",
                     "date":"",
                     "author":""
                 }];
             }
-            console.log($scope.data);
         });   
     }
     // Add New Post 
     $scope.post= {};
 
+    //Adding new Post Here 
     $scope.addPost = function(){
+        //Getting time from user and reducing it into dd:mm:yyyy format 
         var DT = new Date($scope.post.date);
         var finalDate = DT.getDay()+":"+DT.getMonth()+":"+DT.getFullYear(); 
         var URL2="http://assignment-server.herokuapp.com/posts?title="+$scope.post.title+"&date="+$scope.post.finalDate+"&author="+$scope.post.author;
         $http.post(URL2).then(function(response){
-            alert('Post Created');
-            $scope.post = {};
+            alert('Post Created');    // if the post created user will see a msg 
+            $scope.post = {};           // resetting fields 
         });
     }
-
-    
-
     $scope.numberOfPages=function(){
-        return Math.ceil($scope.data.length/$scope.pageSize);                
+        return Math.ceil($scope.data.length/$scope.pageSize);    // getting ceil value for pagination             
     }
-
-    //page ends 
-
-    // Load Comment 
-    
 }]);
 
 // Custom filter function to get starting point 
