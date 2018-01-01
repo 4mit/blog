@@ -29,7 +29,7 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
   
     // Variables for pagination  ends
 
-    $http.get("http://eventmanager-server.herokuapp.com/events")
+    $http.get("https://eventmanager-server.herokuapp.com/events")
     .then(function(response) {
         $scope.allPost = response.data;
         //console.log($scope.allPost);
@@ -48,7 +48,7 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
     $scope.organiserName="";
 
     $scope.searchByAuthor=function(a){
-        var authorUrl = "http://eventmanager-server.herokuapp.com/events?organiser="+a;
+        var authorUrl = "https://eventmanager-server.herokuapp.com/events?organiser="+a;
         $http.get(authorUrl)
         .then(function(response) {
             $scope.data = response.data;
@@ -85,7 +85,7 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
 		today = monthNames[mm]+' '+dd+' '+yyyy;
 		
         
-        var URL2="http://eventmanager-server.herokuapp.com/events";
+        var URL2="https://eventmanager-server.herokuapp.com/events";
         var setdata = {};
         setdata.title = $scope.post.title;
         setdata.date = today;
@@ -115,7 +115,7 @@ myapp.controller('detailsController',['$scope','$http','$filter','$location','$r
     $scope.indiVidialPost ="";
     
     http://eventmanager-server.herokuapp.com/events/1?_embed=comments
-    var url = "http://eventmanager-server.herokuapp.com/events/"+$routeParams.id+"?_embed=comments";
+    var url = "https://eventmanager-server.herokuapp.com/events/"+$routeParams.id+"?_embed=comments";
     
     //get that event 
     $http.get(url).then(function(response) { 
