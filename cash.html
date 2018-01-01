@@ -4,37 +4,46 @@
       <h4 class="title"> Events </h4>
       
        <!-- Search By Author name -->
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search By organiserName .." ng-model="organiserName">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="searchByAuthor(organiserName)">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div><br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search By organiserName .." ng-model="organiserName">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="searchByAuthor(organiserName)">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div><br>
 
         <!-- Add New POST -->
-      <div class="well">
-          <form action="">
-              <input type="text" class="form-control" placeholder="Enter Title" ng-model="post.title" required><br>
-              <input type="date" class="form-control" ng-model="post.date" required><br>
-              <input type="text" class="form-control" placeholder="author"  ng-model="post.organiser" required> </br>
-              <input type="number" class="form-control" placeholder="Enter Price"  ng-model="post.price" required> </br>
-              <button type="button" class="btn btn-info" ng-click="addPost()">Add Event</button>
-          </form>
-        
-      </div>
+        <div class="well">
+            <form action="">
+                <input type="text" class="form-control" placeholder="Enter Title" ng-model="post.title" required><br>
+                <input type="date" class="form-control" ng-model="post.date" required><br>
+                <input type="text" class="form-control" placeholder="author"  ng-model="post.organiser" required> </br>
+                <input type="number" class="form-control" placeholder="Enter Price"  ng-model="post.price" required> </br>
+                <button type="button" class="btn btn-info" ng-click="addPost()">Add Event</button>
+            </form>
+          
+        </div>
     </div>
 
     <div class="col-sm-9">
         <!-- Display All Post  -->
       <h4 class="title">All Events</h4><hr>
       <div class="text-center">
-          <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-primary"><span class="glyphicon glyphicon-step-backward"></span></button>
-              {{currentPage+1}}/{{numberOfPages()}}
-          <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1" class="btn btn-primary">
-              <span class="glyphicon glyphicon-step-forward"></span>
+          <button 
+            ng-disabled="currentPage == 0" 
+            ng-click="currentPage=currentPage-1" 
+            class="btn btn-primary">
+              <span class="glyphicon glyphicon-step-backward"></span></button>
+              {{currentPage+1}}/{{numberOfPages}}
+
+          <button 
+            ng-disabled="currentPage >= getData().length/pageSize - 1" 
+            ng-click="currentPage=currentPage+1" 
+            class="btn btn-primary">
+            <span class="glyphicon glyphicon-step-forward"></span>
           </button>
+          
       </div>
         <br>
 
