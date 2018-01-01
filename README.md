@@ -4,18 +4,17 @@ Download Repo. and save it in locahost directory.
 
 Now open home.html
 
-It will load automatically all the Post Availabe currently 
+It will load automatically all the events Availabe currently 
 
-User Can Navigate through posts via pagiation button per page 3 results will be displayed it can be extended 
+User Can Navigate through events via pagiation button per page 3 results will be displayed it can be extended 
 
-User Can Also able to search Post Via Author Name But Please Keep in Mind that author name must be same as in the blog other -wise error will displayed 
+User Can Also able to search Post Via organization Name But Please Keep in Mind that organization name is case sensitive.
 
-user can add new blog post by side navigation
+user can add new event by side navigation
 
 application is responsive so user can user any device.
 
-If You want to see comment of an post just click on load comment button it will display all comment for that particuler post just below the post
-
+If You want to see comment of an post just click on view full button it will display all comment for that particuler post in new route.
 
 
 
