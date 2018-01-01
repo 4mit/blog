@@ -16,7 +16,7 @@ myapp.config(function($routeProvider,$locationProvider){
 
 });
 
-
+// Default Controller for homepage 
 myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$http,$filter){
 
     /*all post  */
