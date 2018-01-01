@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Prompt');
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+body{margin:0px;padding:0px;}
+.row.content {height: 1500px}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {height: auto;} 
+}
+.container{
+    display:flex;
+}
+.btn-info{
+    font-family: 'Orbitron', sans-serif;
+    color:black !important;background-color:transparent !important;border:1px solid black !important;}
+.btn-info:hover{color:white !important;background-color:black !important;}
+.title{
+    font-family: 'Prompt', sans-serif;
+}
+.well{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  !important;
+    background-color: #fefefe78 !important;
+}
+.comment li{
+	line-height:22px;border-left:2px solid green;margin-bottom:5px;padding-left:5px;
+}

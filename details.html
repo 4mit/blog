@@ -1,0 +1,14 @@
+<div class="col-xs-12">
+	<div class="well">
+		<h3 class="text-center">Post Details</h3>
+		<h2>#{{indiVidialPost.id}}</h2>
+		<h3>{{indiVidialPost.title}}</h3>
+		<h4><span class="glyphicon glyphicon-time">&nbsp;{{indiVidialPost.date}}</h4>
+		<h5><span class="glyphicon glyphicon-user">&nbsp; {{indiVidialPost.organiser}}</h5>
+		<h5><span class="glyphicon glyphicon-usd">&nbsp; {{indiVidialPost.price}}</h5>
+		<button class="btn btn-danger" ng-Click="loadComment()">Load Comment</button>
+	</div>
+</div>
+<div class="col-xs-12">
+	<div id="comments" class="well">Click Load Comment to see Comments</div>
+</div>

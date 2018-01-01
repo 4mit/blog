@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4 class="title"> Events </h4>
+      
+       <!-- Search By Author name -->
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search By organiserName .." ng-model="organiserName">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="searchByAuthor(organiserName)">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div><br>
+
+        <!-- Add New POST -->
+      <div class="well">
+          <form action="">
+              <input type="text" class="form-control" placeholder="Enter Title" ng-model="post.title" required><br>
+              <input type="date" class="form-control" ng-model="post.date" required><br>
+              <input type="text" class="form-control" placeholder="author"  ng-model="post.organiser" required> </br>
+              <input type="number" class="form-control" placeholder="Enter Price"  ng-model="post.price" required> </br>
+              <button type="button" class="btn btn-info" ng-click="addPost()">Add Event</button>
+          </form>
+        
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+        <!-- Display All Post  -->
+      <h4 class="title">All Events</h4><hr>
+      <div class="text-center">
+          <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="btn btn-primary"><span class="glyphicon glyphicon-step-backward"></span></button>
+              {{currentPage+1}}/{{numberOfPages()}}
+          <button ng-disabled="currentPage >= getData().length/pageSize - 1" ng-click="currentPage=currentPage+1" class="btn btn-primary">
+              <span class="glyphicon glyphicon-step-forward"></span>
+          </button>
+      </div>
+        <br>
+
+        <!-- Render post Here with filter  -->
+      <div ng-repeat="item in data | startFrom:currentPage*pageSize | limitTo:pageSize" class="well">
+          <h2 class="title"><span>#{{item.id}}&nbsp;</span>{{item.title}}</h2>
+          <h5 ng-if="item.date"><span class="label label-default"><span class="glyphicon glyphicon-time">&nbsp;{{item.date}}</span></span></h5>
+          <h5 ng-if="item.organiser"><span class="glyphicon glyphicon-user"></span>&nbsp; <strong>{{item.organiser}}</strong></h5>
+          <h5 ng-if="item.price"><span class="glyphicon glyphicon-usd">&nbsp;<strong>{{item.price}}</strong></h5><br>
+          <a href="#!/details/{{item.id}}" class="btn btn-info">Click to See Full Info</a>
+          <div style="margin-left:30px;margin-top:10px;">           
+            <p id="post{{item.id}}"></p>
+          </div>
+      </div>  
+</div>
