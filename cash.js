@@ -16,9 +16,10 @@ myapp.config(function($routeProvider,$locationProvider){
 
 });
 
-// Default Controller for homepage 
+
 myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$http,$filter){
 
+    $scope.numberOfPages =0;
     /*all post  */
     $scope.allPost = "ss";   // Setting Some default vaue to define variable we can just declare also
 
@@ -33,10 +34,13 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
         $scope.allPost = response.data;
         //console.log($scope.allPost);
         $scope.data = response.data;
-        console.log($scope.data);
+        $scope.numberOfPages=Math.ceil($scope.data.length/$scope.pageSize); 
+        
     });
     
-    console.log($scope.data);
+    
+       // getting ceil value for pagination             
+    
     //pagination
     
    
@@ -99,9 +103,8 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
             $scope.post = {};           // resetting fields 
         });
     }
-    $scope.numberOfPages=function(){
-        return Math.ceil($scope.data.length/$scope.pageSize);    // getting ceil value for pagination             
-    }
+
+    
 }]);
 
 
