@@ -13,7 +13,6 @@ myapp.config(function($routeProvider,$locationProvider){
         otherwise({
             redirectTo:'/'
         })
-
 });
 
 
@@ -77,20 +76,19 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
 		var mm = today.getMonth()+1; 
 		var yyyy = today.getFullYear();
 		var monthNames = [
-					"January", "February", "March",
-					"April", "May", "June", "July",
-					"August", "September", "October",
-					"November", "December"
+			"January", "February", "March",
+			"April", "May", "June", "July",
+			"August", "September", "October",
+			"November", "December"
 		];
 		today = monthNames[mm]+' '+dd+' '+yyyy;
 		
-        
         var URL2="https://eventmanager-server.herokuapp.com/events";
         var setdata = {};
-        setdata.title = $scope.post.title;
-        setdata.date = today;
-        setdata.organiser = $scope.post.organiser;
-        setdata.price = $scope.post.price;
+            setdata.title = $scope.post.title;
+            setdata.date = today;
+            setdata.organiser = $scope.post.organiser;
+            setdata.price = $scope.post.price;
         
         var req = {
 		 method: 'POST',
@@ -98,16 +96,24 @@ myapp.controller('homecontroller',['$scope','$http','$filter',function($scope,$h
 		 data: setdata
 		}
 		
-        $http(req).then(function(response){
-            alert('New Event Loaded Successfully');    
-            $scope.post = {};           // resetting fields 
-        });
+        if(setdata.title!=" " && setdata.title !=NaN && setdata.title!=undefined){
+            if(setdata.organiser!=" " && setdata.organiser !=NaN && setdata.organiser!=undefined ){
+                if(setdata.price!=NaN && setdata.price > 0){
+                    $http(req).then(function(response){
+                        alert('New Event Loaded Successfully');    
+                        $scope.post = {};           // resetting fields 
+                    });
+                }else{
+                    alert('Please Enter Valid Info.');
+                }
+            }else{
+                alert('Please Enter Valid Info.');
+            }
+        }else{
+            alert('Please Enter Valid Info.');
+        }
     }
-
-    
 }]);
-
-
 
 //Controller for Secont Route Starts here
 myapp.controller('detailsController',['$scope','$http','$filter','$location','$routeParams',function($scope,$http,$filter,$location,$routeParams){
